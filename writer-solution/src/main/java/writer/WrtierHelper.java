@@ -1,60 +1,49 @@
+package writer;
+
 import java.io.IOException;
 import java.util.LinkedHashMap;
-import java.util.Locale;
 import java.util.Map;
 
-class StringWriter {
+public class WrtierHelper {
 
     String data;
     boolean isClosed;
 
-    public StringWriter(){
+    public String getData() {
+        return data;
+    }
+
+    public void setData(String data) {
+        this.data = data;
+    }
+
+
+
+    public WrtierHelper(){
         data = "";
         isClosed = false;
     }
-    public StringWriter write(String data){
+    public WrtierHelper write(String data){
 
         this.data += data;
         return this;
 
     }
 
-    public StringWriter lowercase() {
+    public WrtierHelper lowercase() {
         this.data = data.toLowerCase();
 
         return this;
 
     }
 
-    public StringWriter upperCase() {
+    public WrtierHelper upperCase() {
 
         this.data = data.toUpperCase();
         return this;
     }
-//
-//    public StringWriter duplicateRemove() {
-//
-//        LinkedHashMap<String,String> finalData = new LinkedHashMap<>();
-//
-//        String[] arr = data.split(" ");
-//
-//        int count = 0;
-//        for (String temp : arr) {
-//            finalData.put(temp,temp);
-//
-//        }
-//        String temp = "";
-//        for (Map.Entry<String,String> s: finalData.entrySet()){
-//
-//            temp+=s.getValue() +" ";
-//        }
-//
-//        this.data=temp;
-//
-//        return this;
-//    }
 
-    public StringWriter duplicateRemove() {
+    public WrtierHelper duplicateRemove() {
 
         LinkedHashMap<Integer,String> finalData = new LinkedHashMap<>();
 
@@ -75,12 +64,12 @@ class StringWriter {
             temp+=s.getValue() +" ";
         }
 
-        this.data=temp;
+        this.data=temp.trim();
 
         return this;
     }
 
-    public StringWriter stupidRemove() {
+    public WrtierHelper stupidRemove() {
         LinkedHashMap<Integer,String> finalData = new LinkedHashMap<>();
 
         String[] arr = data.split(" ");
@@ -99,7 +88,7 @@ class StringWriter {
             temp+=s.getValue() +" ";
         }
 
-        this.data=temp;
+        this.data=temp.trim();
 
         return this;
     }
@@ -113,9 +102,7 @@ class StringWriter {
         return true;
     }
 
-    public void stringMethod(){
 
-    }
 
 
 }

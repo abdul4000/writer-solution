@@ -1,9 +1,13 @@
+package writer;
+
+import writer.StringWriter;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-class FileWriter extends StringWriter {
+public class FileWriter extends StringWriter {
 
     public String getFileName() {
         return fileName;
@@ -17,7 +21,7 @@ class FileWriter extends StringWriter {
 
     public FileWriter(){
         super();
-        fileName = "default.txt";
+        fileName ="default.txt";
 
     }
 
@@ -25,10 +29,15 @@ class FileWriter extends StringWriter {
     public boolean close() throws IOException {
 
         if (!isClosed) {
+            System.out.println("file name is "+ fileName);
             File f = new File(fileName);
 
             if(!f.exists()){
                 f.createNewFile();
+            }
+            if(f.canWrite()){
+                System.out.println("cam write");
+                System.out.println("writing to file at path  "+ f.getAbsolutePath());
             }
             java.io.FileWriter javaFileWriter = new java.io.FileWriter(fileName);
             javaFileWriter.write(this.data);

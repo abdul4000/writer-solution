@@ -1,7 +1,8 @@
-import org.omg.CORBA.WrongTransaction;
+
+import writer.FileWriter;
+import writer.StringWriter;
 
 import java.io.IOException;
-import java.util.Locale;
 
 
 public  class writerMain {
@@ -12,9 +13,9 @@ public  class writerMain {
         StringWriter s = new StringWriter();
         s.write("HELLO HI HI THIS IS GOOD STUPID HELLO!!!").duplicateRemove().lowercase().stupidRemove();
         s.close();
-//        FileWriter f = new FileWriter();
-//        f.write("Hello HI HI THIS IS GOOD STUPID hello").lowercase().duplicateRemove();
-//        f.close();
+        FileWriter f = new FileWriter();
+        f.write("Hello HI HI THIS IS GOOD STUPID no way you").lowercase().duplicateRemove();
+        f.close();
 
 
 
